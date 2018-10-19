@@ -15,12 +15,4 @@
 <% end %>
 
 <h2>Make a comment</h2>
-<%= form_for @comment do |f| %>
-  <%= f.text_area :content %><br>
-
-  <%= f.fields_for :user do |user_fields| %>
-    <%= user_fields.collection_select :user, User.all, :id, :username %>
-  <% end %>
-
-  <%= f.submit "Submit Comment" %>
-<% end %>
+<%= render 'comments/form' %>
