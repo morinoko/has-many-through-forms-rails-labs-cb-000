@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-categories = Category.find_or_create_by(
+categories = Category.create(
   [
     { name: 'News' },
     { name: 'Event' },
@@ -16,7 +16,7 @@ categories = Category.find_or_create_by(
   ]
 )
 
-users = User.find_or_create_by(
+users = User.create(
   [
     { username: 'Felice', email: "felice@gmail.com" },
     { username: 'Ai', email: "ai@gmail.com" },
