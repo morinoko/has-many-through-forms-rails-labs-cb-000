@@ -4,13 +4,13 @@
 
 <% if @post.comment_count > 0 %>
   <h2><%= pluralize(@post.comment_count, "Comment") %></h2>
-    <% @post.users do |user| %>
-      <h3><%= link_to user.username, user_path(user) %></h3>
-        <ul>
-          <% user.comments.each do |comment| %>
-            <li><%= comment.content %></li>
-          <% end %>
-        </ul>
+    <% @post.users.uniq.each do |user| %>
+      <p><%= link_to user.username, user_path(user) %> says: </p>
+      <ul>
+        <% user.comments.each do |comment| %>
+          <li><%= comment.content %></li>
+        <% end %>
+      </ul>
     <% end %>
 <% end %>
 

@@ -1,14 +1,17 @@
+<% # Shown on a post page %>
 <%= form_for @comment do |f| %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+
   <%= f.text_area :content %><br>
-  
+
   <%= f.label :user_id, "Choose a user:" %>
   <%= f.collection_select :user_id, User.all, :id, :username, include_blank: true %><br>
-  
+
   <%= f.fields_for :user, User.new do |user_fields| %>
-    <%= user_fields.label "Or, Create a new user:" %>
+    <%= user_fields.label :username, "Or, Create a new user:" %>
     <%= user_fields.text_field :username %>
   <% end %>
   <br>
-  
-  <%= f.submit "Submit Comment" %>
+
+  <%= f.submit "Create Comment" %>
 <% end %>
